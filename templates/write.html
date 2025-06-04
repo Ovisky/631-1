@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>写博客</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  </head>
+  <body>
+    <nav class="container-fluid">
+      <ul>
+        <li><strong>我的博客</strong></li>
+      </ul>
+      <ul>
+        <li><a href="/">首页</a></li>
+        <li><a href="/write" role="button">写博客</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <h2>写一篇新博客</h2>
+      <form method="POST" class="grid">
+        <input type="text" name="title" placeholder="标题" required />
+        <textarea name="content" placeholder="内容" rows="10" required></textarea>
+        <button type="submit">发布</button>
+      </form>
+    </main>
+  </body>
+</html>

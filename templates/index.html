@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>博客首页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  </head>
+  <body>
+    <nav class="container-fluid">
+      <ul>
+        <li><strong>我的博客</strong></li>
+      </ul>
+      <ul>
+        <li><a href="#">关于</a></li>
+        <li><a href="#">联系</a></li>
+        <li><a href="/write" role="button">写博客</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <h2>博客列表</h2>
+      <ul>
+        {% for post in posts %}
+        <li>
+          <article>
+             <h3><a href="/post/{{ post.id }}">{{ post.title }}</a></h3>
+              <p><small>🕒 {{ post.date }}</small></p>
+              <p>{{ post.content[:60] }}...</p>
+              <p>
+                <a href="/delete_post/{{ post.id }}" style="color:red;">🗑 删除</a>
+              </p>
+          </article>
+        </li>
+        {% endfor %}
+      </ul>
+    </main>
+    
+  </body>
+</html>

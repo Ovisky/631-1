@@ -1,0 +1,32 @@
+<main class="container">
+  <article>
+    <h2>{{ post.title }}</h2>
+    <p><small>🕒 {{ post.date }}</small></p>
+    <div>{{ post.html_content | safe }}</div>
+  </article>
+
+  <hr />
+  <section>
+    <h3>💬 评论</h3>
+
+    {% if comments %}
+      <ul>
+        {% for comment in comments %}
+          <li>
+            <strong>{{ comment.name }}</strong> <small>（{{ comment.date }}）</small><br />
+            {{ comment.comment }}
+            <a href="/delete_comment/{{ post.id }}/{{ loop.index0 }}" style="color:red; margin-left:10px;">删除</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>暂无评论，欢迎发表你的看法！</p>
+    {% endif %}
+
+    <form method="POST" class="grid">
+      <input type="text" name="name" placeholder="你的名字" required />
+      <textarea name="comment" placeholder="写下你的评论..." rows="4" required></textarea>
+      <button type="submit">提交评论</button>
+    </form>
+  </section>
+</main>
