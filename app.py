@@ -119,4 +119,5 @@ def write():
 # ======== 启动入口 =========
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Render 会设置 PORT 环境变量
+    app.run(debug=False, host='0.0.0.0', port=port)
